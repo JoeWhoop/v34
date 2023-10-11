@@ -1,1 +1,59 @@
-https://github.com/JoeWhoop/qrkodyy/blob/main/kod%20główny
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Znajdz siebie</title>
+    <link rel="stylesheet" type="text css" href="style.css">
+</head>
+<body>
+    <h1>Stacja:</h1>
+    <select id="stationDropdown">
+        <option value="D0">D0</option>
+        <option value="D1">D1</option>
+        <option value="D2">D2</option>
+        <option value="D3">D3</option>
+        <option value="D4">D4</option>
+    </select>
+
+    <h1>Znajdz siebie:</h1>
+    <select id="mechanicDropdown">
+        <option value="Aleks Czarnecki">Aleks Czarnecki</option>
+        <option value="Bartosz Kędra">Bartosz Kędra</option>
+        <option value="Bruno Fredrich">Bruno Fredrich</option>
+        <option value="Hubert Jakubowski">Hubert Jakubowski</option>
+        <option value="Kacper Wydra">Kacper Wydra</option>
+        <option value="Lukasz Chojecki">Lukasz Chojecki</option>
+        <option value="Mateusz Gryglicki">Mateusz Gryglicki</option>
+        <option value="Mateusz Wiatr">Mateusz Wiatr</option>
+        <option value="Stanislav Tymchenko">Stanislav Tymchenko</option>
+        <option value="Weronika Szałowska">Weronika Szałowska</option>
+    </select>
+
+    <button id="goButton">Go</button>
+
+    <script>
+        document.getElementById("goButton").addEventListener("click", function () {
+            var selectedMechanic = document.getElementById("mechanicDropdown").value;
+            var selectedStation = document.getElementById("stationDropdown").value;
+
+            // Define the base URL for Lukasz Chojecki
+            var baseRedirectURL = "https://web.miniextensions.com/Bwk6PtCv1a4zbRONadUU?prefill_Mechanic=LUKASZ_CHOJECKI";
+
+            // Define redirection URLs for different stations for Lukasz Chojecki
+            var redirectionURLs = {
+                "D0": baseRedirectURL + "&prefill_Station=D0",
+                "D1": baseRedirectURL + "&prefill_Station=D1",
+                "D2": baseRedirectURL + "&prefill_Station=D2",
+                "D3": baseRedirectURL + "&prefill_Station=D3",
+                "D4": baseRedirectURL + "&prefill_Station=D4"
+            };
+
+            // Check if the selected station exists in the redirection URLs
+            if (redirectionURLs[selectedStation]) {
+                window.location.href = redirectionURLs[selectedStation];
+            } else {
+                alert("Please select both a mechanic and a station before clicking Go.");
+            }
+        });
+    </script>
+</body>
+</html>
